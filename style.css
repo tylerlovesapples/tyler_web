@@ -1,107 +1,71 @@
 @import url('https://fonts.google.com/css?family=Poppins:300,600,800&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
-	--a1: #000000;	--a2: #5fb117;
-	--b1: #005c98;	--b2: #363795;
-	--c1: #e54934;	--c2: #e35d5b;
-	--d1: #2943137c;--d2: #1d00565c;
+	font-weight: 800;
+	--a1: #1a1a1a;
+	--a2: #9393936b;
+	--b1: #005c98;
+	--b2: #363795;
+	--c1: #e54934;
+	--c2: #e35d5b;
+	--d1: #2943137c;
+	--d2: #1d00565c;
 	--fontsize: 1rem;
 }
 
 body {
-	background-color: black !important;
-}
-
-body, main {
+	/* background: by Atle Mo (design), Lea Verou (code) */
+	/* https://projects.verou.me/css3patterns/#carbon-fibre */
+	/* background:
+	radial-gradient(black 15%, transparent 16%) 0 0,
+	radial-gradient(black 15%, transparent 16%) 8px 8px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; */
+	/* background-color:#282828; */
+	background: url(/denim.webp);
+	background-repeat: repeat;
+	background-color: var(--a1) !important;
+	/* background-size:16px 16px; */
 	height: 100vh;
-	width: 100%;
+	width: 100vw;
 	margin: 0px;
 }
 
 main {
-	background-image: url(/images/EmptyName\ 1.png);
-	background-size: cover;
+	background-image: url(/images/EmptyName\ 12.png);
 	background-position: center 0%;
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
 	position: relative;
 	z-index: 2;
-	/* moving up animation */
-	transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
-}
-
-
-
-#nav-toggle {
-	height: 7rem;
-	width: 7rem;
-	position: fixed;
-	z-index: 3;
-	left: 50%;
-	bottom: 3rem;
-	transform: translateX(-50%);
-	background-color: var(--c1);
-	outline: none;
-	border: none;
-	border-radius: 5rem;
-	box-shadow: 0rem 0rem 4rem var(--d1);
-	cursor: pointer;
-	transition: transform, background-color;
-	transition-timing-function: ease;
-	transition-duration: 400ms;
-}
-#nav-toggle:hover {
-	transform: translateX(-50%) scale(1.07);
-}
-#nav-toggle:active{
-	transform: translateX(-50%) scale(0.9);
-}
-
-
-
-
-#nav-toggle > i {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50% -50%) scale(0.9);
-	color: hsl(45, 100, 50);
-	font-size: 1.75rem;
-	opacity: 0;
-	/* transition for button icons */
-	transition: transform, opacity;
-	transition-timing-function: ease;
-	transition-duration: 400ms;
-}
-
-/* from toggleNav() */
-/* tt: appear if not "on" */
-/* makes the open icon appear */
-body:not([data-nav = "on"]) > #nav-toggle:hover > .open {
-	opacity: 1;
-	transform: translate(-50%, -50%) scale(1);
-}
-/* makes the close icon appear */
-/* .close is referencing the close icon */
-body[data-nav = "on"] > #nav-toggle > .close {
-	opacity: 1;
-	transform: translate(-50%, -50%) scale(1);
+	/* moving up animation = cubic-bezier(.13, .53, .38, .97); */
+	transition: transform 500ms ease;
+	-webkit-box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
+	outline: var(--a2) 1.5px solid;
 }
 
 /* when the open button is clicked... */
-body[data-nav = "on"] > main {
-	transform: translateY(-50%);
+body[data-nav="on"] > main {
+	transform: translateY(-41%);
+	box-shadow: rgba(0, 0, 0, 0.25);
 }
 
-
-nav{
-	height: 50vh;
+nav {
+	display: flex;
+	height: 40vh;
 	width: 100%;
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
 	z-index: 1;
+	overflow: hidden;
 }
 
 #nav-links {
@@ -110,32 +74,89 @@ nav{
 	margin-top: clamp(2rem, 2vw, 3rem);
 	padding: 0rem clamp(1rem, 2vw, 2rem);
 	transform: translateY(70%) scale(0.6);
-	transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
+	transition: transform 500ms ease;
 }
 
-body[data-nav = "on"] > nav > #nav-links {
+body[data-nav="on"] > nav > #nav-links {
 	transform: translateY(0%) scale(1);
 }
-
 
 
 #nav-links > .nav-link {
 	text-decoration: none;
 }
-
 #nav-links > .nav-link > .nav-link-label {
+	margin: 0;
 	color: white;
 	font-size: 1.55rem;
-	margin: 0;
 	padding-left: 0.7rem;
 	text-transform: UPPERCASE;
 
 }
-
 #nav-links > .nav-link > .nav-link-image {
 	width: max(20vw, 400px);
-	aspect-ratio: 1.8 / 1;
+	aspect-ratio: 2 / 1.5;
+	border-radius: 0.77rem;
+	margin-top: 1rem;
 	object-fit: cover;
-	margin-top: 0.75rem;
-	border-radius: 0.7rem;
+	outline: var(--a2) 1.5px solid;
+	-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 10px 2.5rem 0px rgba(0,0,0,0.75);
+
+}
+
+#nav-toggle {
+	height: 7rem;
+	width: 13rem;
+	position: fixed;
+	z-index: 3;
+	left: 50%;
+	bottom: clamp(1rem, 2rem, 3rem);
+	transform: translateX(-50%);
+	background-color: var(--c1);
+	outline: var(--a2) 1.5px solid;;
+	border: none;
+	border-radius: 5rem;
+	box-shadow: 0rem 0rem 4rem var(--d1);
+	cursor: pointer;
+	transition: transform, background-color;
+	transition-timing-function: ease;
+	transition-duration: 400ms;
+}
+
+#nav-toggle:hover {
+	transform: translateX(-50%) scale(1.09);
+}
+
+#nav-toggle:active {
+	transform: translateX(-50%) scale(0.9);
+}
+
+/* from toggleNav() */
+/* tt: appear if not "on" */
+/* makes the open icon appear */
+body[data-nav="off"] > #nav-toggle > .open {
+	opacity: 1;
+	transform: translate(-50%, -24%) scale(2.7);
+}
+
+#nav-toggle > i {
+	/* filter: invert(100); */
+	position: absolute;
+	left: 50%;	top: 50%;
+	transform: translate(-50% -50%) scale(0.9);
+	font-size: 1.75rem;
+	opacity: 0;
+	/* transition for button icons */
+	transition: transform, opacity;
+	transition-timing-function: ease;
+	transition-duration: 400ms;
+}
+
+/* makes the close icon appear */
+/* .close is referencing the close icon */
+body[data-nav="on"] > #nav-toggle > .close {
+	opacity: 1;
+	transform: translate(-50%, -33%) scale(2);
 }
