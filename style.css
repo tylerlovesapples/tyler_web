@@ -7,7 +7,7 @@
 	font-weight: 800;
 	--a1: #1a1a1a;
 	--a2: #ffffff7b;
-	--b1: #005c98;
+	--b1: #876436;
 	--b2: #363795;
 	--c1: #e54934;
 	--c2: #e35d5b;
@@ -24,7 +24,8 @@ body {
 	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
 	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; */
 	/* background-color:#282828; */
-	background: rgb(104, 115, 106); /*url(images/denim.webp); */
+	background: var(--b1);
+	/*url(images/denim.webp); */
 	background-repeat: repeat;
 	/* background-color: var(--a1) !important; */
 	/* background-size:16px 16px; */
@@ -34,19 +35,16 @@ body {
 }
 
 main {
-	background-image: url(/images/EmptyName\ 13.png);
+	background-image: url(/images/EmptyName\ 11.png);
 	background-position: center 80%;
 	background-size: cover;
 	height: 100vh;
 	width: 100vw;
 	position: relative;
 	z-index: 4;
-	/* moving up animation = cubic-bezier(.13, .53, .38, .97); */
 	transition: transform 500ms ease;
-	-webkit-box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
-	-moz-box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
 	border-bottom: var(--a2) 1.5px solid;
-	box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 25px 18px rgba(0, 0, 0, 0.5);
 }
 
 /* when the open button is clicked... */
@@ -56,73 +54,59 @@ body[data-nav="on"] > main {
 }
 
 nav {
-	position: absolute;
-	height: 55%;
+	position: sticky;
+	height: 66%;
+	padding-left: 3%;
 	width: 100vw;
 	left: 0px;
 	bottom: 0px;
 	z-index: 0;
 	overflow-x: scroll;
-	padding-top: 1rem ;
 }
 
 /* NAV ITEMS */
+
 #nav-items {
-	font-family: sans-serif;
-	position: relative;
 	display: flex;
-	flex-grow: 1;
-	justify-content: center;
-	/* pushes elements up */
-	align-items: center;
-	gap: 1rem;
-
-
+	justify-content: flex-start;
+	gap: clamp(0.5rem, 2rem, 200px);
 	/* makes the opening animation nice */
 	transform: translateY(40vh) scale(0.6);
 	transition: transform 500ms ease;
 }
+
 body[data-nav="on"] > nav > #nav-items {
 	/* offset from the top */
 	transform: translateY(1vh) scale(1);
 }
+
 #nav-items > .nav-link {
 	text-decoration: none;
 }
-
 
 /* LABELs */
 #nav-items > .nav-link > .nav-link-label {
 	margin: 0%;
 	z-index: 1;
+	font-family: sans-serif;
 	color: white;
-	font-size: 1.2rem;
-	letter-spacing: 0.1rem;
+	font-size: 1.4rem;
+	letter-spacing: 0.2rem;
 	padding-left: 5%;
-	text-transform: UPPERCASE;
-	/* text-shadow: 0px 4px 1rem rgba(0, 0, 0, 0.4); */
-	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+	/* text-transform: UPPERCASE; */
 }
+
 /* IMAGEs */
 #nav-items > .nav-link > .nav-link-image {
-	height: 20vmax;
-	width: max(300px, 25rem);
-	
-
+	height: 50vh;
+	width: 20rem;
 	border-radius: 0.77rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	object-fit: cover;
-	border: var(--a2) 1.5px solid;
-	aspect-ratio: 1/1;
-	
-	-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 10px 2.5rem 0px rgba(0,0,0,0.4);
-
+	border: var(--a2) 0.1rem solid;
+	box-shadow: 0px 10px 2.5rem 0px rgba(0, 0, 0, 0.4);
 }
-
-
 
 /* THE BUTTON STUFF */
 #nav-toggle {
@@ -142,14 +126,17 @@ body[data-nav="on"] > nav > #nav-items {
 	transition-timing-function: ease;
 	transition-duration: 150ms;
 }
+
 #nav-toggle:hover {
 	transform: translateX(-50%) scale(1.09);
 	background-color: rgb(234, 206, 104, 0.8);
 }
+
 #nav-toggle:active {
 	transform: translateX(-50%) scale(0.9);
 	background-color: rgb(147, 105, 20);
 }
+
 /* from toggleNav() */
 /* tt: appear if not "on" */
 /* makes the open icon appear */
@@ -157,10 +144,12 @@ body[data-nav="off"] > #nav-toggle > .open {
 	opacity: 1;
 	transform: translate(-50%, -24%) scale(2.7);
 }
+
 #nav-toggle > i {
 	/* filter: invert(100); */
 	position: absolute;
-	left: 50%;	top: 50%;
+	left: 50%;
+	top: 50%;
 	transform: translate(0% 100%) scale(0.9);
 	font-size: 1.75rem;
 	opacity: 0;
@@ -170,32 +159,13 @@ body[data-nav="off"] > #nav-toggle > .open {
 	transition-timing-function: ease;
 	transition-duration: 300ms;
 }
+
 /* makes the close icon appear */
 /* .close is referencing the close icon */
 body[data-nav="on"] > #nav-toggle > .close {
 	opacity: 1;
 	transform: translate(-50%, -33%) scale(2);
 }
-
-
-@media only screen and (max-width: 600px) {
-	* {
-		color: red;
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .button-10 {
 	display: flex;
@@ -213,6 +183,7 @@ body[data-nav="on"] > #nav-toggle > .close {
 	-webkit-user-select: none;
 	touch-action: manipulation;
 }
+
 .button-10:focus {
 	box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
 	outline: 0;
