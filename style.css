@@ -4,17 +4,15 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
 	font-weight: 800;
 	--a1: #1a1a1a;
-	--a2: #9393936b;
+	--a2: #ffffff7b;
 	--b1: #005c98;
 	--b2: #363795;
 	--c1: #e54934;
 	--c2: #e35d5b;
 	--d1: #2943137c;
 	--d2: #1d00565c;
-	--fontsize: 1rem;
 }
 
 body {
@@ -26,9 +24,9 @@ body {
 	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
 	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; */
 	/* background-color:#282828; */
-	background: url(/denim.webp);
+	background: rgb(104, 115, 106); /*url(images/denim.webp); */
 	background-repeat: repeat;
-	background-color: var(--a1) !important;
+	/* background-color: var(--a1) !important; */
 	/* background-size:16px 16px; */
 	height: 100vh;
 	width: 100vw;
@@ -36,103 +34,122 @@ body {
 }
 
 main {
-	background-image: url(/images/EmptyName\ 12.png);
-	background-position: center 0%;
+	background-image: url(/images/EmptyName\ 13.png);
+	background-position: center 80%;
 	background-size: cover;
 	height: 100vh;
 	width: 100vw;
 	position: relative;
-	z-index: 2;
+	z-index: 4;
 	/* moving up animation = cubic-bezier(.13, .53, .38, .97); */
 	transition: transform 500ms ease;
 	-webkit-box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
-	box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.8);
-	outline: var(--a2) 1.5px solid;
+	border-bottom: var(--a2) 1.5px solid;
+	box-shadow: 0px 0px 25px 18px rgba(0,0,0,0.5);
 }
 
 /* when the open button is clicked... */
 body[data-nav="on"] > main {
-	transform: translateY(-41%);
-	box-shadow: rgba(0, 0, 0, 0.25);
+	transform: translateY(-70%);
+	box-shadow: rgba(0, 0, 0, 0.05);
 }
 
 nav {
-	display: flex;
-	height: 40vh;
-	width: 100%;
 	position: absolute;
+	height: 55%;
+	width: 100vw;
 	left: 0px;
 	bottom: 0px;
-	z-index: 1;
-	overflow: hidden;
+	z-index: 0;
+	overflow-x: scroll;
+	padding-top: 1rem ;
 }
 
-#nav-links {
+/* NAV ITEMS */
+#nav-items {
+	font-family: sans-serif;
+	position: relative;
 	display: flex;
-	gap: clamp(1rem, 2vw, 2rem);
-	margin-top: clamp(2rem, 2vw, 3rem);
-	padding: 0rem clamp(1rem, 2vw, 2rem);
-	transform: translateY(70%) scale(0.6);
+	flex-grow: 1;
+	justify-content: center;
+	/* pushes elements up */
+	align-items: center;
+	gap: 1rem;
+
+
+	/* makes the opening animation nice */
+	transform: translateY(40vh) scale(0.6);
 	transition: transform 500ms ease;
 }
-
-body[data-nav="on"] > nav > #nav-links {
-	transform: translateY(0%) scale(1);
+body[data-nav="on"] > nav > #nav-items {
+	/* offset from the top */
+	transform: translateY(1vh) scale(1);
 }
-
-
-#nav-links > .nav-link {
+#nav-items > .nav-link {
 	text-decoration: none;
 }
-#nav-links > .nav-link > .nav-link-label {
-	margin: 0;
-	color: white;
-	font-size: 1.55rem;
-	padding-left: 0.7rem;
-	text-transform: UPPERCASE;
 
+
+/* LABELs */
+#nav-items > .nav-link > .nav-link-label {
+	margin: 0%;
+	z-index: 1;
+	color: white;
+	font-size: 1.2rem;
+	letter-spacing: 0.1rem;
+	padding-left: 5%;
+	text-transform: UPPERCASE;
+	/* text-shadow: 0px 4px 1rem rgba(0, 0, 0, 0.4); */
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
 }
-#nav-links > .nav-link > .nav-link-image {
-	width: max(20vw, 400px);
-	aspect-ratio: 2 / 1.5;
+/* IMAGEs */
+#nav-items > .nav-link > .nav-link-image {
+	height: 20vmax;
+	width: max(300px, 25rem);
+	
+
 	border-radius: 0.77rem;
 	margin-top: 1rem;
+	margin-bottom: 1rem;
 	object-fit: cover;
-	outline: var(--a2) 1.5px solid;
-	-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 10px 2.5rem 0px rgba(0,0,0,0.75);
+	border: var(--a2) 1.5px solid;
+	aspect-ratio: 1/1;
+	
+	-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 10px 2.5rem 0px rgba(0,0,0,0.4);
 
 }
 
+
+
+/* THE BUTTON STUFF */
 #nav-toggle {
-	height: 7rem;
-	width: 13rem;
 	position: fixed;
-	z-index: 3;
+	height: 4rem;
+	width: 10rem;
+	z-index: 5;
 	left: 50%;
-	bottom: clamp(1rem, 2rem, 3rem);
+	bottom: clamp(2.5rem, 3rem, 5rem);
 	transform: translateX(-50%);
-	background-color: var(--c1);
-	outline: var(--a2) 1.5px solid;;
+	background-color: var(--a1);
 	border: none;
 	border-radius: 5rem;
 	box-shadow: 0rem 0rem 4rem var(--d1);
 	cursor: pointer;
-	transition: transform, background-color;
+	transition: transform, background-color, border-radius;
 	transition-timing-function: ease;
-	transition-duration: 400ms;
+	transition-duration: 150ms;
 }
-
 #nav-toggle:hover {
 	transform: translateX(-50%) scale(1.09);
+	background-color: rgb(234, 206, 104, 0.8);
 }
-
 #nav-toggle:active {
 	transform: translateX(-50%) scale(0.9);
+	background-color: rgb(147, 105, 20);
 }
-
 /* from toggleNav() */
 /* tt: appear if not "on" */
 /* makes the open icon appear */
@@ -140,23 +157,63 @@ body[data-nav="off"] > #nav-toggle > .open {
 	opacity: 1;
 	transform: translate(-50%, -24%) scale(2.7);
 }
-
 #nav-toggle > i {
 	/* filter: invert(100); */
 	position: absolute;
 	left: 50%;	top: 50%;
-	transform: translate(-50% -50%) scale(0.9);
+	transform: translate(0% 100%) scale(0.9);
 	font-size: 1.75rem;
 	opacity: 0;
+	padding-bottom: 0.77rem;
 	/* transition for button icons */
 	transition: transform, opacity;
 	transition-timing-function: ease;
-	transition-duration: 400ms;
+	transition-duration: 300ms;
 }
-
 /* makes the close icon appear */
 /* .close is referencing the close icon */
 body[data-nav="on"] > #nav-toggle > .close {
 	opacity: 1;
 	transform: translate(-50%, -33%) scale(2);
+}
+
+
+@media only screen and (max-width: 600px) {
+	* {
+		color: red;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button-10 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 6px 14px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+	border-radius: 6px;
+	border: none;
+	color: #fff;
+	background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+	background-origin: border-box;
+	box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+.button-10:focus {
+	box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+	outline: 0;
 }
