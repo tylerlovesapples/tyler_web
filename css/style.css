@@ -7,7 +7,7 @@
 	font-weight: 800;
 	--a1: #1a1a1a;
 	--a2: #ffffff7b;
-	--b1: hsl(98, 34%, 39%);
+	--b1: hsl(0, 0%, 47%);
 	--b2: #363795;
 	--c1: #e54934;
 	--c2: #e35d5b;
@@ -24,8 +24,8 @@ body {
 	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
 	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; */
 	/* background-color:#282828; */
-	background: var(--b1);
 	/*url(images/denim.webp); */
+	background: var(--b1);
 	background-repeat: repeat;
 	/* background-color: var(--a1) !important; */
 	/* background-size:16px 16px; */
