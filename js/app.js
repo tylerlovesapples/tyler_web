@@ -10,3 +10,4 @@ const toggleNav = () => {
 // 	document.body.background = 'bgimages/'+num+'.jpg';
 // 	document.body.style.backgroundRepeat = "repeat";// Background repeat
 // }
+
