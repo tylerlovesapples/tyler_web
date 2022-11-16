@@ -1,80 +1,135 @@
 :root {
-	--white-theme-bg: rgb(255, 255, 255);
-	--dark-theme-tx: rgb(227, 227, 227);
-	--dark-theme-bg: rgb(32, 32, 32);
-	--white-theme-tx: rgb(32, 32, 32);
+	--white-theme-bg: rgb(15, 5, 0);
+	--white-theme-tx: rgb(255, 255, 255);
+	--font: 'times'
 }
-
 body {
-	height: 100vh;
-	margin: 0px;
-	padding: 0px;
-	display: flex;
+	margin: 0;
+	background-color: var(--white-theme-bg);
+	height: 70vh;
+	width: 100vw;
+	padding-inline: 2vw;
+	overflow: hidden;
 }
 
 nav {
-	/* outline: solid rgb(134, 134, 29); */
-	display: flex;
-	flex-direction: column;
-	padding-top: 20vh;
-	align-items: flex-end;
-	padding-right: 5rem;
-	font-family:'Roboto', sans-serif;
-	font-size: 1.2rem;
-	color:var(--white-theme-tx);
+	z-index: 32;
 	position: fixed;
-	height: 100%;
-	left: 0;
-	z-index: 10;
-	background-color: white;
-	min-width: clamp(2vw, 200px, 400px);
-}
-
-.v-scrollbar * {
+	height: 3rem;
+	width: 100%;
+	padding: 2rem;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	gap: 1rem;
+	/* flex-direction: column; */
+	align-items: flex-end;
+	
+	font-family:'Roboto', sans-serif;
+	font-size: 1.4rem;
+	color: var(--white-theme-tx);
+	background-color: var(--white-theme-bg);
+}
+nav > logo {
+	font-weight: bolder;
+	font-size: 1.3em;
+}
+nav > a {
+	color:var(--white-theme-tx);
 	text-decoration: none;
 	list-style: none;
-	color: var(--white-theme-tx);
 }
 
-.display {
-	display: flex;
-	align-items: center;
-	height: 100%;
-}
-
-.section {
-	/* outline: 1px solid rgb(0, 145, 255); */
-	image-rendering: optimizeQuality;
+.content {
+	padding-top: 7.1rem;
+	opacity: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	left: 20rem;
-	width: 50rem;
-	height: calc(100% - 10rem);
+	scroll-snap-points-y: repeat(100vh);
+	scroll-snap-type: y mandatory;
+	overflow: scroll;
+}
+.wedding {
+	height: 100vh;
+	display: flex;	
+}
+.wedding * {
+	scroll-snap-type: start;
 }
 
-.section > img {
-	z-index: 2;
-	/* outline: solid red 1px; */
-	width: 100%;
-	height: 100vh;
-	object-fit: contain;
-	margin-right: 10rem;
+
+.title{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	background: linear-gradient(90deg, var(--white-theme-bg) 0%, rgba(36, 36, 36, 0.507) 100%);
+}
+.title > p {
+	width: 15ch;
+	color: var(--white-theme-tx);
+	font-family: var(--font);
+	font-size: 1.4rem;
+	margin-inline: 7px;
 	
 }
 
-.section > p {
-	position: absolute;
-	bottom: -4rem;
-	font-size: 1.4rem;
-	color: var(--white-theme-tx);
+.pics {
+	/* outline: 1px solid rgb(21, 215, 21); */
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
-.on {
-	color: crimson;
+.upper-strip,
+.lower-strip {
+	display: flex;
+	height: 50%;
+	gap: 0.5rem;
+	/* position: relative; */
 }
+.upper-strip > img, 
+.lower-strip > img {
+	/* border: 10px red solid; */
+	border-radius: 0.3rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.upper-strip > img {
+}
+.lower-strip > img {
+}
+
+
+
+
+
+
+/* .wedding {
+	height: 100vh;
+	width: 100vw;
+	overflow: scroll;
+	display: flex;
+	align-items: center;
+	margin-left: 10rem;
+	margin-right: 2rem;
+}
+.wedding > img {
+	height: 90%;
+	margin-inline: .5rem;
+}
+
+.img-large{	
+	border: 2px rgba(223, 220, 220, 0.406) solid;
+	height: 1500px;
+	width: 1500px;
+	overflow: hidden;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	margin-inline: 1rem;
+	border-radius: 8px;
+}
+.img-split{
+	height: 1500px;
+	width: 1500px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	margin-inline: 1rem;
+	border-radius: 8px;
+} */
