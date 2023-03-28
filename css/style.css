@@ -7,7 +7,7 @@
 	font-weight: 800;
 	--a1: #1a1a1a;
 	--a2: #ffffff7b;
-	--b1: hsl(0, 0%, 47%);
+	--b1: hsl(0, 0%, 27%);
 	--b2: #363795;
 	--c1: #e54934;
 	--c2: #e35d5b;
@@ -16,19 +16,7 @@
 }
 
 body {
-	/* background: by Atle Mo (design), Lea Verou (code) */
-	/* https://projects.verou.me/css3patterns/#carbon-fibre */
-	/* background:
-	radial-gradient(black 15%, transparent 16%) 0 0,
-	radial-gradient(black 15%, transparent 16%) 8px 8px,
-	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; */
-	/* background-color:#282828; */
-	/*url(images/denim.webp); */
 	background: var(--b1);
-	background-repeat: repeat;
-	/* background-color: var(--a1) !important; */
-	/* background-size:16px 16px; */
 	height: 100vh;
 	width: 100vw;
 	margin: 0px;
@@ -94,7 +82,6 @@ body[data-nav="on"] > nav > #nav-items {
 	letter-spacing: 0.2rem;
 	padding-left: 5%;
 	text-transform: UPPERCASE;
-
 }
 
 /* IMAGEs */
