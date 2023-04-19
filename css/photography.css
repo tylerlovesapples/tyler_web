@@ -1,3 +1,88 @@
+* {
+	margin: 3px;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+nav {
+	position: fixed;
+	padding-top: 4%;
+}
+
+nav > ul {
+	list-style-type: none;
+	display: flex;
+}
+li > a {
+	text-decoration: none;
+	color: #006266;
+	font-family: sans-serif;
+	font-size: 1.2rem;
+}
+
+.V-track {
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	scroll-snap-type: y mandatory;
+}
+
+.H-container, .H-track {
+  overflow-y: hidden;
+}
+
+.H-container {
+	height: 95vh;
+	display: flex;
+	/* allows X scrolling on .H-track individually */
+	overflow-x: auto;
+	scroll-snap-align: center;
+}
+
+.H-track {
+	display: flex;
+	height: 100%;
+	/* makes images overflow in the X */
+	scroll-snap-type: x mandatory;
+	flex-wrap: nowrap;
+	scroll-snap-align: start;
+	scroll-snap-stop: normal;
+	column-gap: 0.7rem;
+  /* gap between photos */
+}
+
+.img {
+	height: 100%;
+	scroll-snap-align: center;
+	/* scroll-snap-stop: always; */
+	scroll-snap-coordinate: center center;
+	display: flex;
+	justify-content: center; /* centers img hoizontally in the slot*/
+}
+
+.img > img {
+	height: 80%;
+	max-width: 95vw;
+	object-fit: contain;
+	display: block;
+	margin: auto;
+}
+
+
+:root {
+	--color-1: #FF5733;
+	--color-2: #C70039;
+	--color-3: #900C3F;
+	--color-4: #581845;
+	--color-5: #2E4057;
+	--color-6: #006266;
+	--color-7: #1B4F72;
+	--color-8: #7D3C98;
+	--color-9: #9B59B6;
+	--color-10: #be55b9;
+}
+=======
 :root {
 	--white-theme-bg: rgb(15, 5, 0);
 	--white-theme-tx: rgb(255, 255, 255);
@@ -97,10 +182,6 @@ nav > a {
 }
 .lower-strip > img {
 }
-
-
-
-
 
 
 /* .wedding {
