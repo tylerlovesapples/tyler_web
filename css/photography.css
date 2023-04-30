@@ -1,216 +1,161 @@
 * {
-	margin: 3px;
-	padding: 0;
-	box-sizing: border-box;
-	background-color: white;
+  box-sizing: border-box;
+  background-color: var(--white);
+}
+
+:root {
+  --color-1: #ff5733;
+  --black: rgb(15, 5, 0);
+  --white: rgb(255, 255, 255);
+  --font: "Roboto";
+}
+
+body {
+  margin: 0;
+  background-color: var(--white);
+  outline: auto;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 nav {
-	position: fixed;
-	padding-top: 4%;
+  position: fixed;
+  z-index: 3;
+  height: 5rem;
+  width: 100%;
+  gap: 1rem;
+  /* flex-direction: column; */
+  display: flex;
+  align-items: center;
+  font-family: var(--font), sans-serif;
+  font-size: 1.4rem;
+  background: linear-gradient(to bottom, var(--white), transparent);
 }
 
-nav > ul {
-	list-style-type: none;
-	display: flex;
+nav > logo {
+  padding-left: 2rem;
+  font-weight: bolder;
+  font-size: 1.3em;
+  background: none;
 }
-li > a {
-	text-decoration: none;
-	color: #006266;
-	font-family: sans-serif;
-	font-size: 1.2rem;
+
+nav > a {
+  background: none;
+  text-decoration: none;
+  color: #006266;
+  font-family: sans-serif;
+  font-size: 1.2rem;
 }
 
 .V-track {
-	height: 100%;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	scroll-snap-type: y mandatory;
-}
-
-.H-container, .H-track {
-  overflow-y: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
 }
 
 .H-container {
-	height: 95vh;
-	display: flex;
-	/* allows X scrolling on .H-track individually */
-	overflow-x: auto;
-	scroll-snap-align: center;
+  height: 95vh;
+  display: flex;
+  /* allows X scrolling on .H-track individually */
+  overflow-x: auto;
+  scroll-snap-align: center;
 }
 
 .H-track {
-	display: flex;
-	height: 100%;
-	/* makes images overflow in the X */
-	scroll-snap-type: x mandatory;
-	flex-wrap: nowrap;
-	scroll-snap-align: start;
-	scroll-snap-stop: normal;
-	column-gap: 0.7rem;
+  display: flex;
+  height: 100%;
+  /* makes images overflow in the X */
+  scroll-snap-type: x mandatory;
+  flex-wrap: nowrap;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  column-gap: 0.7rem;
   /* gap between photos */
 }
 
+.H-container,
+.H-track {
+  overflow-y: hidden;
+}
+
 .img {
-	height: 100%;
-	scroll-snap-align: center;
-	/* scroll-snap-stop: always; */
-	scroll-snap-coordinate: center center;
-	display: flex;
-	justify-content: center; /* centers img hoizontally in the slot*/
+  height: 100%;
+  scroll-snap-align: center;
+  /* scroll-snap-stop: always; */
+  scroll-snap-coordinate: center center;
+  display: flex;
+  justify-content: center; /* centers img hoizontally in the slot*/
 }
 
 .img > img {
-	height: 80%;
-	max-width: 95vw;
-	object-fit: contain;
-	display: block;
-	margin: auto;
-}
-
-
-:root {
-	--color-1: #FF5733;
-	--color-2: #C70039;
-	--color-3: #900C3F;
-	--color-4: #581845;
-	--color-5: #2E4057;
-	--color-6: #006266;
-	--color-7: #1B4F72;
-	--color-8: #7D3C98;
-	--color-9: #9B59B6;
-	--color-10: #be55b9;
-}
-=======
-:root {
-	--white-theme-bg: rgb(15, 5, 0);
-	--white-theme-tx: rgb(255, 255, 255);
-	--font: 'times'
-}
-body {
-	margin: 0;
-	background-color: var(--white-theme-bg);
-	height: 70vh;
-	width: 100vw;
-	padding-inline: 2vw;
-	overflow: hidden;
-}
-
-nav {
-	z-index: 32;
-	position: fixed;
-	height: 3rem;
-	width: 100%;
-	padding: 2rem;
-	display: flex;
-	gap: 1rem;
-	/* flex-direction: column; */
-	align-items: flex-end;
-	
-	font-family:'Roboto', sans-serif;
-	font-size: 1.4rem;
-	color: var(--white-theme-tx);
-	background-color: var(--white-theme-bg);
-}
-nav > logo {
-	font-weight: bolder;
-	font-size: 1.3em;
-}
-nav > a {
-	color:var(--white-theme-tx);
-	text-decoration: none;
-	list-style: none;
+  height: 80%;
+  max-width: 95vw;
+  object-fit: contain;
+  display: block;
+  margin: auto;
 }
 
 .content {
-	padding-top: 7.1rem;
-	opacity: 100%;
-	display: flex;
-	flex-direction: column;
-	scroll-snap-points-y: repeat(100vh);
-	scroll-snap-type: y mandatory;
-	overflow: scroll;
+  padding-top: 7.1rem;
+  opacity: 100%;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
 }
+
 .wedding {
-	height: 100vh;
-	display: flex;	
+  height: 100vh;
+  display: flex;
 }
+
 .wedding * {
-	scroll-snap-type: start;
+  scroll-snap-type: start;
 }
 
-
-.title{
-	height: 100%;
-	display: flex;
-	align-items: center;
-	background: linear-gradient(90deg, var(--white-theme-bg) 0%, rgba(36, 36, 36, 0.507) 100%);
+.title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    var(--black) 0%,
+    rgba(36, 36, 36, 0.507) 100%
+  );
 }
+
 .title > p {
-	width: 15ch;
-	color: var(--white-theme-tx);
-	font-family: var(--font);
-	font-size: 1.4rem;
-	margin-inline: 7px;
-	
+  width: 15ch;
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 1.4rem;
+  margin-inline: 7px;
 }
 
 .pics {
-	/* outline: 1px solid rgb(21, 215, 21); */
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+  /* outline: 1px solid rgb(21, 215, 21); */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .upper-strip,
 .lower-strip {
-	display: flex;
-	height: 50%;
-	gap: 0.5rem;
-	/* position: relative; */
+  display: flex;
+  height: 50%;
+  gap: 0.5rem;
+  /* position: relative; */
 }
-.upper-strip > img, 
+.upper-strip > img,
 .lower-strip > img {
-	/* border: 10px red solid; */
-	border-radius: 0.3rem;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+  /* border: 10px red solid; */
+  border-radius: 0.3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.upper-strip > img {
-}
-.lower-strip > img {
-}
-
-
-/* .wedding {
-	height: 100vh;
-	width: 100vw;
-	overflow: scroll;
-	display: flex;
-	align-items: center;
-	margin-left: 10rem;
-	margin-right: 2rem;
-}
-.wedding > img {
-	height: 90%;
-	margin-inline: .5rem;
-}
-
-.img-large{	
-	border: 2px rgba(223, 220, 220, 0.406) solid;
-	height: 1500px;
-	width: 1500px;
-	overflow: hidden;
-	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-	margin-inline: 1rem;
-	border-radius: 8px;
-}
-.img-split{
-	height: 1500px;
-	width: 1500px;
-	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-	margin-inline: 1rem;
-	border-radius: 8px;
-} */
